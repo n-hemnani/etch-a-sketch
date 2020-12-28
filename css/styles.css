@@ -6,24 +6,46 @@ html {
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0px;
     min-height: 100%;
     width: 100%;
-    background-color: wheat;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: mediumspringgreen;
+}
+
+#main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#interface {
+    margin: 50px;
+}
+
+#clear {
+    border: none;
+    outline: none;
+    padding: 15px 30px;
+    border-radius: 25px;
 }
 
 #sketch-area {
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
+    height: 640px;
+    width: 640px;
+    border: 2px solid #000000;
 }
 
 .square {
-    border: 1px solid black;
-    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid rgb(235, 235, 235);
 }
 
-.square:hover {
-    background-color: coral;
+.black {
+    background-color: #000000;
 }
