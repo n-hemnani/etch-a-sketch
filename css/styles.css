@@ -1,0 +1,29 @@
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    min-height: 100%;
+    width: 100%;
+    background-color: wheat;
+}
+
+#sketch-area {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+}
+
+.square {
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.square:hover {
+    background-color: coral;
+}
