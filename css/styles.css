@@ -102,8 +102,9 @@ form {
     justify-content: space-evenly;
     align-items: center;
     margin-top: 0px;
-    height: 100px;
+    height: 150px;
     list-style-type: none;
+    font-size: 20px;
 }
 
 #sketch-area {
