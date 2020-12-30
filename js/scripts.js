@@ -1,7 +1,7 @@
 const sketchArea = document.querySelector('#sketch-area');
-const n = null;
+let n = 16;
 
-function initSketchArea(n=16) {
+function initSketchArea() {
     while (sketchArea.firstChild)
         sketchArea.removeChild(sketchArea.firstChild);
 
@@ -11,7 +11,6 @@ function initSketchArea(n=16) {
     for (let i = 0; i < n*n; i++) {
         const square = document.createElement('div');
         square.setAttribute('class', 'square');
-        square.setAttribute('id', i.toString());
         square.style.padding = `${squarePadding}px`;
         sketchArea.appendChild(square);
     }
@@ -28,14 +27,22 @@ function squareHover(e) {
 }
 
 function clear() {
-    n ? initSketchArea(n) : initSketchArea();
+    if (n) {
+        initSketchArea(n);
+     } else {
+         n = 16;
+         initSketchArea();
+     }
 }
 
 clearBtn = document.querySelector('#clearbtn');
 clearBtn.addEventListener('click', () => clear());
 
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
+let slider = document.getElementById("myRange");
+let output = document.getElementById("demo");
 output.innerHTML = slider.value;
-slider.addEventListener('mousemove', () => output.innerHTML = slider.value);
-slider.addEventListener('mouseup', () => initSketchArea(slider.value));
+slider.addEventListener('mousemove', () => {
+    n = slider.value;
+    output.innerHTML = slider.value;
+});
+slider.addEventListener('mouseup', () => initSketchArea());
