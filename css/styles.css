@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@900&display=swap');
+
 html {
     margin: 0px;
     height: 100%;
@@ -12,8 +14,9 @@ body {
     margin: 0px;
     min-height: 100%;
     width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: mediumspringgreen;
+    font-family: 'Heebo', sans-serif;
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
 }
 
 #main {
@@ -23,16 +26,49 @@ body {
     align-items: center;
 }
 
-#interface {
-    margin: 50px;
-}
-
-#clear {
+#clearbtn {
     border: none;
     outline: none;
-    padding: 15px 30px;
+    padding: 12.5px 30px;
     border-radius: 25px;
+    background-color: #3282ff;
+    box-shadow: 0px 5px 0px #153a75;
+    color: #ffffff;
+    font-size: 14px;
+    transition: all .1s;
 }
+
+#clearbtn:hover {
+    transform: translate(0px, 5px);
+    box-shadow: none;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 300px;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #000000;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #000000;
+    cursor: pointer;
+  }
 
 #sketch-area {
     display: grid;

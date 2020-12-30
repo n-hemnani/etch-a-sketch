@@ -12,12 +12,32 @@
 </head>
 
 <body>
-  <h1>Etch-a-Sketch</h1>
+  <h1>etch-a-sketch</h1>
 
   <div id="main">
-    <div id="interface">
-      <button id="clear">Clear</button>
-    </div>
+    <button id="clearbtn">clear</button>
+
+    <input type="range" min="8" max="100" value="16" class="slider" id="myRange">
+    <p>n = <span id="demo"></span></p>
+    
+    <!--
+    <form action="" name="form">
+      <ul>
+          <label for="black">black:</label>
+          <input type="radio" id="black" name="color">
+        </li>
+        <li>
+          <label for="greyscale">greyscale:</label>
+          <input type="radio" id="greyscale" name="color">
+        </li>
+        <li>
+          <label for="rainbow">rainbow:</label>
+          <input type="radio" id="rainbow" name="color">
+        </li>
+      </ul>
+    </form>
+  -->
+
     <div id="sketch-area"></div>
   </div>
 

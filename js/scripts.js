@@ -1,6 +1,10 @@
 const sketchArea = document.querySelector('#sketch-area');
+const n = null;
 
 function initSketchArea(n=16) {
+    while (sketchArea.firstChild)
+        sketchArea.removeChild(sketchArea.firstChild);
+
     sketchArea.style['grid-template-columns'] = `repeat(${n}, 1fr)`;
     
     const squarePadding = (320 / n) - 1;
@@ -23,17 +27,15 @@ function squareHover(e) {
     e.target.style.backgroundColor = '#000000';
 }
 
-function reset() {
-    let n = prompt("How many squares per side do you want on the new grid?");
-    while (n < 8 || n > 64)
-        n = prompt("Pick a number between 8 and 64.");
-    
-    initSketchArea(n);
+function clear() {
+    n ? initSketchArea(n) : initSketchArea();
 }
 
-clearBtn = document.querySelector('#clear');
-clearBtn.addEventListener('click', () => {
-    while (sketchArea.firstChild)
-        sketchArea.removeChild(sketchArea.firstChild);
-    reset();
-});
+clearBtn = document.querySelector('#clearbtn');
+clearBtn.addEventListener('click', () => clear());
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+slider.addEventListener('mousemove', () => output.innerHTML = slider.value);
+slider.addEventListener('mouseup', () => initSketchArea(slider.value));
