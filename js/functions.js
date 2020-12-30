@@ -1,7 +1,6 @@
 export function initSketchArea(n=16) {
     const sketchArea = document.querySelector('#sketch-area');
-    while (sketchArea.firstChild)
-        sketchArea.removeChild(sketchArea.firstChild);
+    sketchArea.innerHTML = '';
 
     sketchArea.style['grid-template-columns'] = `repeat(${n}, 1fr)`;
     

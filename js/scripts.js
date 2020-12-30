@@ -2,8 +2,8 @@ import { initSketchArea } from './functions.js';
 
 initSketchArea();
 
-const slider = document.querySelector("#myRange");
-const output = document.querySelector("#demo");
+const slider = document.querySelector(".slider");
+const output = document.querySelector("#n");
 slider.addEventListener('mousemove', () => output.innerHTML = slider.value);
 slider.addEventListener('mouseup', () => initSketchArea(slider.value));
 

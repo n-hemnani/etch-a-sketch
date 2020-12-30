@@ -16,27 +16,25 @@
 
   <div id="main">
     <div id="settings">
-      <button id="clearbtn">clear</button>
-
-      <div id="sliderdiv">
-        <input type="range" min="8" max="100" value="16" class="slider" id="myRange">
-        <p id="sliderval">n = <span id="demo">16</span></p>
-      </div>
       
-      <form action="" name="form">
-        <div class="radiobtn">
-          <label for="black">black:</label>
-          <input type="radio" id="black" name="color">
-        </div>
-        <div class="radiobtn">
-          <label for="greyscale">greyscale:</label>
+      <div id="sliderdiv">
+        <input type="range" min="8" max="64" value="16" class="slider">
+        <p id="sliderval">size: <span id="n">16</span></p>
+      </div>
+
+      <div id="radiobtns">
+          <input type="radio" id="black" name="color" checked="checked">
+          <label for="black">black</label>
+
           <input type="radio" id="greyscale" name="color">
-        </div>
-        <div class="radiobtn">
-          <label for="rainbow">rainbow:</label>
+          <label for="greyscale">greyscale</label>
+
           <input type="radio" id="rainbow" name="color">
-        </div>
-      </form>
+          <label for="rainbow">rainbow</label>
+      </div>
+
+      <button id="clearbtn">clear</button>
+      
     </div>
 
     <div id="sketch-area"></div>
