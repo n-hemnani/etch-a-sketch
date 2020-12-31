@@ -19,6 +19,11 @@ body {
     background-color: #ffffff;
 }
 
+
+
+
+
+/***** main holds the slider and radio buttons *****/
 #main {
     display: flex;
     flex-direction: row;
@@ -27,6 +32,11 @@ body {
     align-items: center;
 }
 
+
+
+
+
+/***** for everything that isn't the drawing grid **/
 #settings {
     display: flex;
     flex-direction: column;
@@ -34,6 +44,11 @@ body {
     align-items: center;
 }
 
+
+
+
+
+/***** styles for the range slider *****************/
 #sliderdiv {
     display: flex;
     flex-direction: column;
@@ -78,11 +93,16 @@ body {
     margin-top: 10px;
 }
 
+
+
+
+
+/***** styles for the radio buttons ****************/
 #radiobtns {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 300px;
+    width: 250px;
     justify-content: space-evenly;
     margin-top: 25px;
     -webkit-user-select: none;
@@ -126,6 +146,11 @@ body {
     background-color: rgb(216, 216, 216);
 }
 
+
+
+
+
+/** styles for the clear button to clear the grid **/
 #clearbtn {
     border: none;
     outline: none;
@@ -144,6 +169,11 @@ body {
     box-shadow: none;
 }
 
+
+
+
+
+/***** styles for the drawing grid *****************/
 #sketch-area {
     display: grid;
     height: 640px;
@@ -154,6 +184,10 @@ body {
 .square {
     background-color: #ffffff;
     border: 1px solid rgb(235, 235, 235);
+}
+
+.square:hover {
+    background-color: #ff0000 !important;
 }
 
 .black {

@@ -12,16 +12,19 @@
 </head>
 
 <body>
+  <!-- main header -->
   <h1>etch-a-sketch</h1>
 
   <div id="main">
     <div id="settings">
       
+      <!-- slider to change size of drawing grid-->
       <div id="sliderdiv">
         <input type="range" min="8" max="64" value="16" class="slider">
         <p id="sliderval">size: <span id="n">16</span></p>
       </div>
 
+      <!-- radio buttons to select color for drawing on grid -->
       <div id="radiobtns">
           <input type="radio" id="black" name="color" checked>
           <label for="black">black</label>
@@ -40,12 +43,17 @@
 
           <input type="radio" id="rainbow" name="color">
           <label for="rainbow">rainbow</label>
+
+          <input type="radio" id="eraser" name="color">
+          <label for="eraser">eraser</label>
       </div>
 
+      <!-- button to clear the grid -->
       <button id="clearbtn">clear</button>
       
     </div>
 
+    <!-- main etch-a-sketch drawing grid  -->
     <div id="sketch-area"></div>
   </div>
 
