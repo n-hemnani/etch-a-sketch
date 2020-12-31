@@ -25,12 +25,12 @@ h1 {
 
 h5 {
     margin-top: 0;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 
 
-/***** main holds the slider and radio buttons *****/
+/***** main holds everthing *****/
 #main {
     display: flex;
     flex-direction: row;
@@ -49,6 +49,7 @@ h5 {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    margin-bottom: 50px;
 }
 
 
@@ -71,7 +72,6 @@ h5 {
     background: #d3d3d3;
     opacity: 0.8;
     outline: none;
-    margin: auto;
 }
   
 .slider::-webkit-slider-thumb {
@@ -111,7 +111,6 @@ h5 {
     flex-wrap: wrap;
     width: 250px;
     justify-content: space-evenly;
-    margin-top: 25px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -162,7 +161,7 @@ h5 {
     border: none;
     outline: none;
     padding: 12.5px 30px;
-    margin-top: 40px;
+    margin-top: 20px;
     border-radius: 25px;
     background-color: #3282ff;
     box-shadow: 0px 5px 0px #153a75;
@@ -196,8 +195,4 @@ h5 {
 
 .square:hover {
     background-color: #ff0000 !important;
-}
-
-.black {
-    background-color: #000000;
 }

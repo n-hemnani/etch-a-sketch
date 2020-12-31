@@ -22,7 +22,8 @@ export function initSketchArea(n=16) {
     const squarePadding = (300 / n) - 1;
     for (let i = 0; i < n*n; i++) {
         const square = document.createElement('div');
-        square.setAttribute('class', 'square');
+        square.className = 'square';
+        square.id = '_100';
         square.style.padding = `${squarePadding}px`;
         sketchArea.appendChild(square);
     }
@@ -66,7 +67,6 @@ const eraserBtn = document.querySelector('#eraser');
 
 // this function colors a square when its event listener is fired
 function colorSquare(square, count, active) {
-    
     // if the grid is not active, then don't draw anything
     if (!active) return;
 
@@ -74,23 +74,32 @@ function colorSquare(square, count, active) {
     if (blackBtn.checked) {
         square.style.backgroundColor = '#000000';
     } else if (greyscaleBtn.checked) {
-        // this greyscale option essentially works by taking the current color of the square,
+        // this greyscale option works by taking the current color of the square,
         // and darkening it by roughly 20%
-
-        // get the current color of the square
-        console.log(window.getComputedStyle(square).backgroundColor);
-        let r = parseInt(rgb2hex(window.getComputedStyle(square).backgroundColor).slice(1, 3), 16) - 50;
-        let g = parseInt(rgb2hex(window.getComputedStyle(square).backgroundColor).slice(3, 5), 16) - 50;
-        let b = parseInt(rgb2hex(window.getComputedStyle(square).backgroundColor).slice(5, 7), 16) - 50;
-
-        // if the current color is not greyscale, color it light grey
-        if (r !== g && g !== b && r !== b)
-            return square.style.backgroundColor = "rgb(205, 205, 205)";
-        
-        square.style.backgroundColor = '#' + r.toString(16) + g.toString(16) + b.toString(16);
-        if (r < 10)
-            square.style.backgroundColor = '#' + '0' + r.toString(16) + '0' + g.toString(16) + '0' + b.toString(16);
-
+        switch (square.id.slice(1, 3)) {
+            case '10':
+                square.id = '_80';
+                square.style.backgroundColor = 'rgb(204, 204, 204)';
+                break;
+            case '80':
+                square.id = '_60';
+                square.style.backgroundColor = 'rgb(153, 153, 153)';
+                break;
+            case '60':
+                square.id = '_40';
+                square.style.backgroundColor = 'rgb(102, 102, 102)';
+                break;
+            case '40':
+                square.id = '_20';
+                square.style.backgroundColor = 'rgb(51, 51, 51)';
+                break;
+            case '20':
+                square.id = '_00';
+                square.style.backgroundColor = 'rgb(0, 0, 0)';
+                break;
+            default:
+                break;
+        }
     } else if (earthBtn.checked) {
         square.style.backgroundColor = earthArray[++count.earth % 6];
     } else if (pinksBtn.checked) {
@@ -103,15 +112,3 @@ function colorSquare(square, count, active) {
         square.style.backgroundColor = '#ffffff';
     }
 }
-
-// convert rgb value to hex (function from Seth Rickard)
-// this is used to help with the greyscale functionality
-let hexDigits = new Array ("0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"); 
-function rgb2hex(rgb) {
- rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
- return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
-}
-
-function hex(x) {
-  return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
- }
