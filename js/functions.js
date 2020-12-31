@@ -14,10 +14,12 @@ export function initSketchArea(n=16) {
 
     // event listeners to control when the drawing grid is active
     sketchArea.addEventListener('click', () => active = !active);
-    sketchArea.addEventListener('mouseleave', () => active = false);
+
+    const radioBtns = document.querySelectorAll('input[name="color"]')
+    radioBtns.forEach(radioBtn => radioBtn.addEventListener('change', () => active = false));
     
     // generate the n^2 squares inside the grid
-    const squarePadding = (320 / n) - 1;
+    const squarePadding = (300 / n) - 1;
     for (let i = 0; i < n*n; i++) {
         const square = document.createElement('div');
         square.setAttribute('class', 'square');
@@ -36,8 +38,13 @@ export function initSketchArea(n=16) {
 
     // event listeners used to draw on the squares when the mouse is pointed on them
     const squares = document.querySelectorAll('.square');
-    squares.forEach(square => square.addEventListener('mouseover', function() { colorSquare(square, count, active) } ));
-    squares.forEach(square => square.addEventListener('click', function() { colorSquare(square, count, true) } ));
+    squares.forEach(square => square.addEventListener('mouseover', () => {
+        colorSquare(square, count, active) 
+    }));
+    squares.forEach(square => square.addEventListener('click', () => {
+        if (!active)
+            colorSquare(square, count, true)
+    }));
 }
 
 // these four arrays contain color schemes for the
@@ -71,6 +78,7 @@ function colorSquare(square, count, active) {
         // and darkening it by roughly 20%
 
         // get the current color of the square
+        console.log(window.getComputedStyle(square).backgroundColor);
         let r = parseInt(rgb2hex(window.getComputedStyle(square).backgroundColor).slice(1, 3), 16) - 50;
         let g = parseInt(rgb2hex(window.getComputedStyle(square).backgroundColor).slice(3, 5), 16) - 50;
         let b = parseInt(rgb2hex(window.getComputedStyle(square).backgroundColor).slice(5, 7), 16) - 50;
@@ -100,9 +108,10 @@ function colorSquare(square, count, active) {
 // this is used to help with the greyscale functionality
 let hexDigits = new Array ("0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"); 
 function rgb2hex(rgb) {
-    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-    return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+ rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+ return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
 }
+
 function hex(x) {
-    return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
-}
+  return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
+ }

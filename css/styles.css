@@ -19,7 +19,14 @@ body {
     background-color: #ffffff;
 }
 
+h1 {
+    margin-bottom: 0;
+}
 
+h5 {
+    margin-top: 0;
+    margin-bottom: 100px;
+}
 
 
 
@@ -176,14 +183,15 @@ body {
 /***** styles for the drawing grid *****************/
 #sketch-area {
     display: grid;
-    height: 640px;
-    width: 640px;
+    height: 600px;
+    width: 600px;
     border: 2px solid #000000;
 }
 
 .square {
     background-color: #ffffff;
     border: 1px solid rgb(235, 235, 235);
+    transition: .1s;
 }
 
 .square:hover {
