@@ -1,5 +1,5 @@
 # etch-a-sketch
-An etch-a-sketch program written in plain Javascript.
+An etch-a-sketch program written in vanilla Javascript.
 
 https://n-hemnani.github.io/etch-a-sketch/
 
